@@ -19,18 +19,18 @@ return {
         desc = "Find Plugin File",
       },
       {
-        ";f",
+        "\\f",
         function()
           local builtin = require("telescope.builtin")
           builtin.find_files({
             no_ignore = false,
-            hidden = true,
+            hidden = false,
           })
         end,
         desc = "Lists files in your current working directory, respects .gitignore",
       },
       {
-        ";r",
+        "\\r",
         function()
           local builtin = require("telescope.builtin")
           builtin.live_grep()
@@ -46,7 +46,7 @@ return {
         desc = "Lists open buffers",
       },
       {
-        ";t",
+        "\\t",
         function()
           local builtin = require("telescope.builtin")
           builtin.help_tags()
@@ -54,7 +54,7 @@ return {
         desc = "Lists available help tags and opens a new window with the relevant help info on <cr>",
       },
       {
-        ";;",
+        "\\;",
         function()
           local builtin = require("telescope.builtin")
           builtin.resume()
@@ -62,7 +62,7 @@ return {
         desc = "Resume the previous telescope picker",
       },
       {
-        ";e",
+        "\\e",
         function()
           local builtin = require("telescope.builtin")
           builtin.diagnostics()
@@ -70,7 +70,7 @@ return {
         desc = "Lists Diagnostics for all open buffers or a specific buffer",
       },
       {
-        ";s",
+        "\\s",
         function()
           local builtin = require("telescope.builtin")
           builtin.treesitter()
@@ -78,7 +78,7 @@ return {
         desc = "Lists Function names, variables, from Treesitter",
       },
       {
-        ";b",
+        "\\b",
         function()
           local telescope = require("telescope")
 

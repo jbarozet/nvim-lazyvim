@@ -28,51 +28,80 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = true },
-      pyright = {},
-      lua_ls = {},
-      html = {},
-      yamlls = {
-        settings = {
-          yaml = {
-            keyOrdering = false,
+      servers = {
+        pyright = {},
+        ruff_lsp = {
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
+            },
           },
         },
-      },
-      --gopls = {},
-      --ruby_ls = {},
-      diagnosticls = {},
-      dockerls = {},
-      bashls = {},
-      ansiblels = {
-        filetypes = {
-          "yaml.ansible",
+        lua_ls = {},
+        html = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              keyOrdering = false,
+            },
+          },
         },
-        settings = {
-          ansible = {
+        --gopls = {},
+        --ruby_ls = {},
+        diagnosticls = {},
+        dockerls = {},
+        bashls = {},
+        ansiblels = {
+          filetypes = {
+            "yaml.ansible",
+          },
+          settings = {
             ansible = {
-              path = "ansible",
-              useFullyQualifiedCollectionNames = true,
-            },
-            ansibleLint = {
-              enabled = true,
-              path = "ansible-lint",
-            },
-            executionEnvironment = {
-              enabled = false,
-            },
-            python = {
-              interpreterPath = "python",
-            },
-            completion = {
-              provideRedirectModules = true,
-              provideModuleOptionAliases = true,
+              ansible = {
+                path = "ansible",
+                useFullyQualifiedCollectionNames = true,
+              },
+              ansibleLint = {
+                enabled = true,
+                path = "ansible-lint",
+              },
+              executionEnvironment = {
+                enabled = false,
+              },
+              python = {
+                interpreterPath = "python3",
+              },
+              completion = {
+                provideRedirectModules = true,
+                provideModuleOptionAliases = true,
+              },
             },
           },
         },
+        terraformls = {},
+        marksman = {},
+        sqlls = {},
       },
-      terraformls = {},
-      marksman = {},
-      sqlls = {},
+      setup = {
+        ruff_lsp = function()
+          require("lazyvim.util").lsp.on_attach(function(client, _)
+            if client.name == "ruff_lsp" then
+              -- Disable hover in favor of Pyright
+              client.server_capabilities.hoverProvider = false
+            end
+          end)
+        end,
+      },
     },
   },
 }

@@ -5,6 +5,8 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "pyright",
+        "black",
+        "flake8",
         "mypy",
         "ruff",
         "hadolint",
@@ -101,6 +103,57 @@ return {
             end
           end)
         end,
+      },
+    },
+  },
+
+  --- Formatters
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        ["python"] = { { "black" } },
+        ["markdown"] = { { "prettierd", "prettier" } },
+        ["markdown.mdx"] = { { "prettierd", "prettier" } },
+        ["javascript"] = { "dprint" },
+        ["javascriptreact"] = { "dprint" },
+        ["typescript"] = { "dprint" },
+        ["typescriptreact"] = { "dprint" },
+      },
+      formatters = {
+        shfmt = {
+          prepend_args = { "-i", "2", "-ci" },
+        },
+        dprint = {
+          condition = function(ctx)
+            return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
+          end,
+        },
+      },
+    },
+  },
+
+  --- Linters
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        lua = { "selene", "luacheck" },
+        markdown = { "markdownlint" },
+        python = { "flake8" },
+      },
+      linters = {
+        selene = {
+          condition = function(ctx)
+            return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
+          end,
+        },
+        luacheck = {
+          condition = function(ctx)
+            return vim.fs.find({ ".luacheckrc" }, { path = ctx.filename, upward = true })[1]
+          end,
+        },
       },
     },
   },

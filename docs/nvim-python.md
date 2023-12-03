@@ -297,7 +297,6 @@ max-complexity = 10
 max-line-length = 120
 ```
 
-#TODO [[nvim-python-flake8]]
 ### Ruff
 This one is a bit special. Not sure yet if I'll keep it or not. Ruff can be used to replace Flake8 (plus dozens of plugins), Black, isort, pyupgrade, and more, all while executing tens or hundreds of times faster than any individual tool. It is exposed as a LSP and is  intended to be used alongside another Python LSP in order to support features like navigation and autocompletion.
 

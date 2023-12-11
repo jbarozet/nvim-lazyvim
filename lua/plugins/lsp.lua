@@ -9,6 +9,10 @@ return {
         "flake8",
         "mypy",
         "ruff",
+        "ansible-language-server",
+        "ansible-lint",
+        "terraform-ls",
+        "dockerfile-language-server",
         "hadolint",
         "markdownlint",
         "nginx-language-server",
@@ -73,7 +77,7 @@ return {
                 path = "ansible",
                 useFullyQualifiedCollectionNames = true,
               },
-              ansibleLint = {
+              ansiblelint = {
                 enabled = true,
                 path = "ansible-lint",
               },
@@ -142,6 +146,7 @@ return {
         lua = { "selene", "luacheck" },
         markdown = { "markdownlint" },
         python = { "flake8" },
+        ansible = { "ansiblelint" },
       },
       linters = {
         selene = {

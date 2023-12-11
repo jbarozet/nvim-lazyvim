@@ -1,10 +1,11 @@
 return {
   -- add catppuccin
   {
-    "catppuccin/nvim",
-    lazy = true,
-    name = "catppuccin",
-    opts = { style = "mocha" },
+    "catppuccin", -- Make sure to use "catppuccin" and not "catppuccin/nvim"
+    opts = {
+      style = "mocha",
+      transparent_background = true,
+    },
   },
   -- add tokyonight
   {

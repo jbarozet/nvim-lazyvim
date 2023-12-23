@@ -1,5 +1,4 @@
 ---
-title: Neovim - Python
 tags:
   - Programming
   - python
@@ -26,15 +25,15 @@ To setup Neovim for Python, you will need:
 - Formatter: **black**
 - Switching virtual env: AckslD/swenv.nvim
 
-> Note: **ruff**: for faster python linting. Ruff can be used to replace Flake8 (plus dozens of plugins), isort, pydocstyle, yesqa, eradicate, pyupgrade, and autoflake, all while executing tens or hundreds of times faster than any individual tool. It is also exposed as a LSP and is  intended to be used alongside another Python LSP in order to support features like navigation and autocompletion.
->
+> Note: **ruff**: for faster python linting. Ruff can be used to replace Flake8 (plus dozens of plugins), isort, pydocstyle, yesqa, eradicate, pyupgrade, and autoflake, all while executing tens or hundreds of times faster than any individual tool. It is also exposed as a LSP and is intended to be used alongside another Python LSP in order to support features like navigation and autocompletion.
+
 ### External Tooling installation
 
 You can always install the necessary tools (pyright, flake8, ruff etc) outside of Neovim using the package manager of your choice. But I find it way easier to install them using the Neovim plugin called Mason. You can use Mason just by entering `:Mason` and then you are exposed with a nice TUI graphical interface where you can pick and choose which package you want to install. To have them automatically installed for a fresh new setup;, then it's better to have them defined in a neovim configuration file (I put all of them in my [lua/plugins/lsp.lua](https://github.com/jbarozet/nvim-lazyvim/blob/main/lua/plugins/lsp.lua) config file).
 
 ### Configuration
 
-In terms of configuration, null-ls is a plugin that was commonly used in the community. null-ls is an interface to use things that are not language servers (like linters, formatters or event other neovim plugins) as if they were language servers. It somehow bridge the gap between LSP client and Servers and provides Formatting, Diagnostics and more. But it seems this plugin is extremely hard to maintain and `null-ls.vim` is not maintained anymore. This was announced by its maintainer mid 2023. A fork called `none-ls.nvim` has been created but there is a debate to know whether this is really a goog approach because the problem remains the same: it's a mess to maintain. LazyVim (folke) has decided to go with a different approach and  `none-ls.nvim` is no longer installed by default in LazyVim.
+In terms of configuration, null-ls is a plugin that was commonly used in the community. null-ls is an interface to use things that are not language servers (like linters, formatters or event other neovim plugins) as if they were language servers. It somehow bridge the gap between LSP client and Servers and provides Formatting, Diagnostics and more. But it seems this plugin is extremely hard to maintain and `null-ls.vim` is not maintained anymore. This was announced by its maintainer mid 2023. A fork called `none-ls.nvim` has been created but there is a debate to know whether this is really a goog approach because the problem remains the same: it's a mess to maintain. LazyVim (folke) has decided to go with a different approach and `none-ls.nvim` is no longer installed by default in LazyVim.
 
 They decided to go with this approach:
 
@@ -98,7 +97,7 @@ Here are the (common) steps to finalize your LSP configuration in Neovom:
 - Install LSP server with Mason
 - Configure with nvim-lspconfig
 
-We'll be using the **pyright** language server for completion and diagnostics. I have also ruff configured there because it is exposed as a LSP and is  intended to be used alongside another Python LSP in order to support features like navigation and autocompletion.
+We'll be using the **pyright** language server for completion and diagnostics. I have also ruff configured there because it is exposed as a LSP and is intended to be used alongside another Python LSP in order to support features like navigation and autocompletion.
 
 To install the tools that we need, I will be using **mason.nvim**. This is a Neovim plugin that allows you to easily manage external editor tooling such as LSP servers, DAP servers, linters, and formatters through a single interface.
 
@@ -325,7 +324,7 @@ max-line-length = 120
 
 ### Ruff
 
-This one is a bit special. Not sure yet if I'll keep it or not. Ruff can be used to replace Flake8 (plus dozens of plugins), Black, isort, pyupgrade, and more, all while executing tens or hundreds of times faster than any individual tool. It is exposed as a LSP and is  intended to be used alongside another Python LSP in order to support features like navigation and autocompletion.
+This one is a bit special. Not sure yet if I'll keep it or not. Ruff can be used to replace Flake8 (plus dozens of plugins), Black, isort, pyupgrade, and more, all while executing tens or hundreds of times faster than any individual tool. It is exposed as a LSP and is intended to be used alongside another Python LSP in order to support features like navigation and autocompletion.
 
 ## Managing Virtual Environments
 

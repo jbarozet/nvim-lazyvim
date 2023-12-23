@@ -4,7 +4,7 @@ return {
     "catppuccin", -- Make sure to use "catppuccin" and not "catppuccin/nvim"
     opts = {
       style = "mocha",
-      transparent_background = true,
+      transparent_background = false,
     },
   },
   -- add tokyonight

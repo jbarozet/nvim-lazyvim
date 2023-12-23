@@ -29,3 +29,11 @@ keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
 keymap.set("n", "sc", "<C-w>c")
+
+-- vim-tmux-navigator
+keymap.set("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", { silent = true })
+keymap.set("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", { silent = true })
+keymap.set("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { silent = true })
+keymap.set("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", { silent = true })
+keymap.set("n", "<C-\\>", "<Cmd>TmuxNavigateLastActive<CR>", { silent = true })
+keymap.set("n", "<C-Space>", "<Cmd>TmuxNavigateNavigateNext<CR>", { silent = true })
